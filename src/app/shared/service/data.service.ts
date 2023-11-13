@@ -35,7 +35,7 @@ export class DataService {
     campaign.campaign_id = this.db.createId();
     return this.db.collection("Campaign/").add(campaign);
   }
-  
+
   getAllCampaigns() {
     return this.db.collection("Campaign/").snapshotChanges();
   }
@@ -50,5 +50,12 @@ export class DataService {
 
   getCampaignById(id : any) {
     return this.db.doc(`Campaign/${id}`).valueChanges();
+  }
+
+  getFund(){
+    return this.db.collection("Fund/").snapshotChanges();
+  }
+  updateFund(fund:object,fund_id:string){
+    return this.db.doc(`Fund/${fund_id}`).update(fund);
   }
 }
