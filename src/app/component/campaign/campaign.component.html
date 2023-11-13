@@ -42,7 +42,10 @@
               </button>
               <mat-menu #menu="matMenu">
                
-                
+                <button mat-menu-item (click)="deleteCampaign(row)">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                  </button>
               </mat-menu>
             </td>
           </ng-container>

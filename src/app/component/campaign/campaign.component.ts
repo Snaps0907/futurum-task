@@ -8,6 +8,7 @@ import { Campaign } from 'src/app/shared/model/campaign';
 import { Product } from 'src/app/shared/model/product';
 import { DataService } from 'src/app/shared/service/data.service';
 import { AddCampaignComponent } from './add-campaign/add-campaign.component';
+import { DeleteCampaignComponent } from './delete-campaign/delete-campaign.component';
 
 @Component({
   selector: 'app-campaign',
@@ -86,6 +87,26 @@ export class CampaignComponent {
       }
     });
     return productName;
+  }
+
+  deleteCampaign(row: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = {
+      title: 'Delete campaign',
+      campaignName: row.campaign_name
+    }
+
+    const dialogRef = this.dialog.open(DeleteCampaignComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        console.log(row);
+        this.dataApi.deleteCampaign(row.campaign_id);
+        this.openSnackBar("Campaign deleted successfully.", "OK")
+      }
+    })
   }
 
   openSnackBar(message: string, action: string) {
