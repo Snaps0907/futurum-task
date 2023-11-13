@@ -1,3 +1,20 @@
+.main-container{
+    padding: 10px;
+}
+.half-box {
+    width: 50%;
+    float: left;
+}
+.status-box{
+    min-height: 78px;
+}
 .mat-mdc-dialog-content{
     width: 600px;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mat-mdc-form-field{
+    padding: 0 10px;
 }

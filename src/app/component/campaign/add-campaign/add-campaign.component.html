@@ -1,3 +1,4 @@
+<div class="main-container">
 <h2 mat-dialog-tile> {{ title }} </h2>
 <mat-divider></mat-divider>
 
@@ -5,8 +6,8 @@
 
     <mat-grid-list cols="2">
 
-      <mat-grid-tile>
-        <div>
+      
+        <div class="half-box">
           <mat-form-field appearance="outline">
             <mat-label>Campaign name</mat-label>
             <input matInput
@@ -45,16 +46,18 @@
           
         </mat-form-field>     
         </div>
-      </mat-grid-tile>
+      
 
-      <mat-grid-tile>
-        <div>
+      
+        <div class="half-box">
+            <div class="status-box">
           <mat-label class="me-3">Status : </mat-label>
           <br>
           <mat-radio-group aria-label="Select status" color="primary" formControlName="status">
             <mat-radio-button value="true">On</mat-radio-button>
             <mat-radio-button value="false">Off</mat-radio-button>
           </mat-radio-group>
+        </div>
           <mat-form-field class="mt-4" appearance="outline">
             <mat-label>Town</mat-label>
             <mat-select formControlName="town" name="town">
@@ -82,7 +85,7 @@
           </mat-form-field>
 
         </div>
-      </mat-grid-tile>
+      
 
     </mat-grid-list>
 
@@ -92,5 +95,5 @@
   <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
   <button mat-raised-button color="primary" mat-dialog-close (click)="registerCampaign();updateFund()" [disabled]="form.invalid"> {{buttonName}} </button>
 </div>
-
+</div>
 

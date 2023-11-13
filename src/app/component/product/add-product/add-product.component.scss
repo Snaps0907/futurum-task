@@ -1,8 +1,13 @@
-:root{
-    margin: 0;
-    padding: 0;
+.main-container{
+    padding: 10px;
 }
 .mat-mdc-dialog-content{
     width: 600px;
-    background-color: lightblue;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mat-mdc-form-field{
+    padding: 0 10px;
 }

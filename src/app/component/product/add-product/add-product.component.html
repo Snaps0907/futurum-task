@@ -1,3 +1,4 @@
+<div class="main-container">
 <h2 mat-dialog-tile>{{title}}</h2>
 
 <mat-dialog-content [formGroup] = "form">
@@ -27,3 +28,5 @@
     <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
     <button mat-raised-button color="primary" mat-dialog-close (click)="registerProduct()" [disabled]="form.invalid"> {{buttonName}} </button>
   </div>
+
+</div>
