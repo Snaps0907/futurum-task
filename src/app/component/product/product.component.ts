@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit{
   ) { }
   
   ngOnInit(): void {
-    
+    this.getAllProducts();
   }
 
   addProduct() {
