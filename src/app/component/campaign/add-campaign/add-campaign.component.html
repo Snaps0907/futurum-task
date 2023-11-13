@@ -7,7 +7,7 @@
 
       <mat-grid-tile>
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Campaign name</mat-label>
             <input matInput
                     placeholder="Campaign name"
@@ -15,7 +15,7 @@
                     required>
             <mat-error *ngIf="form.get('campaign_name')?.invalid || form.get('campaign_name')?.dirty || form.get('campaign_name')?.touched">Enter campaign name</mat-error>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Campaign keywords</mat-label>
             <input matInput
                     placeholder="Campaign keywords"
@@ -24,7 +24,7 @@
             <mat-error *ngIf="form.get('keywords')?.invalid || form.get('keywords')?.dirty || form.get('keywords')?.touched">Enter campaign keywords</mat-error>
             
           </mat-form-field>   
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Bid amount</mat-label>
           <input matInput
                   placeholder="Bid amount"
@@ -34,7 +34,7 @@
           <mat-error *ngIf="form.get('amount')?.invalid">Enter campaign bid amount</mat-error>
           
         </mat-form-field> 
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Campaign fund</mat-label>
           <input matInput
                   placeholder="Campaign fund"
@@ -55,7 +55,7 @@
             <mat-radio-button value="true">On</mat-radio-button>
             <mat-radio-button value="false">Off</mat-radio-button>
           </mat-radio-group>
-          <mat-form-field class="mt-4">
+          <mat-form-field class="mt-4" appearance="outline">
             <mat-label>Town</mat-label>
             <mat-select formControlName="town" name="town">
               <mat-option *ngFor="let town of towns" [value]="town">
@@ -63,7 +63,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Radius</mat-label>
             <input matInput
                     placeholder="Radius"
@@ -72,7 +72,7 @@
                     type="number">
             <mat-error *ngIf="form.get('radius')?.invalid">Enter radius </mat-error>
           </mat-form-field>
-          <mat-form-field class="mt-4">
+          <mat-form-field class="mt-4" appearance="outline">
             <mat-label>Product</mat-label>
             <mat-select formControlName="product_id" name="product_id">
               <mat-option *ngFor="let product of allProducts" [value]="product.product_id">

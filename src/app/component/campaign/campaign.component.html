@@ -1,19 +1,15 @@
 <div class="container">
-
     <div class="row">
-      <div class="col-sm-6 col-md-4 mt-3">
-        <mat-card class="add-doc text-center" (click) = "addCampaign()">
-          <mat-card-content>
-            Add Campaign <br>
-            <mat-icon>group_add</mat-icon>
-          </mat-card-content>
-        </mat-card>
-      </div>
+        <div class="col-sm-6 col-md-4 mt-3">
+            <button class="add-campaign text-center" (click)="addCampaign()">
+                    <mat-icon>add</mat-icon>
+            </button>
+        </div>
     </div>
   
       <!-- Campaign table -->
       <h2 style="font-weight: 700;" class="mt-4" color="primary">Campaign Information</h2>
-      <mat-form-field >
+      <mat-form-field appearance="outline">
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Campaign name" #input>
       </mat-form-field>

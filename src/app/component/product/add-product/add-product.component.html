@@ -4,7 +4,7 @@
 
     <mat-grid-list cols="1">
         <div>
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Product name</mat-label>
             <input matInput
                     placeholder="Product name"
@@ -12,7 +12,7 @@
                     required>
             <mat-error *ngIf="form.get('name')?.invalid || form.get('name')?.dirty || form.get('name')?.touched">Enter product name</mat-error>
           </mat-form-field>
-            <mat-form-field>
+            <mat-form-field appearance="outline">
                 <mat-label>Product description</mat-label>
                 <input matInput
                         placeholder="Product description"
