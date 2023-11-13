@@ -106,10 +106,14 @@ export class ProductComponent implements OnInit{
     })
   }
 
+  viewProduct(row: any) {
+    window.open('/product/' + row.id, '_blank');
+  }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
-  
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

@@ -11,7 +11,7 @@
     <!-- products table -->
     <mat-form-field appearance="outline">
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. code logic" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Product name..." #input>
     </mat-form-field>
     
     <div class="mat-elevation-z8">
@@ -37,6 +37,10 @@
                         <mat-icon>more_vert</mat-icon>
                     </button>
                     <mat-menu #menu="matMenu">
+                        <button mat-menu-item (click)="viewProduct(row)">
+                            <mat-icon>open_in_new</mat-icon>
+                            <span>View</span>
+                        </button>
                         <button mat-menu-item (click)="editProduct(row)">
                             <mat-icon>edit</mat-icon>
                             <span>Edit</span>
