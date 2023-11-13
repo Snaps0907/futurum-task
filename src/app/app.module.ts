@@ -14,6 +14,7 @@ import { DeleteProductComponent } from './component/product/delete-product/delet
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,11 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [{ provide: MAT_DIALOG_DATA, useValue: {} },
-    { provide: MatDialogRef, useValue: {} }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

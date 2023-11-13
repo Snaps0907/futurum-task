@@ -1,12 +1,12 @@
 export const environment = {
     production: false,
     firebaseConfig: {
-        apiKey: "AIzaSyBLtOdNvRXBUTICAwLOWhUb9qrqvcKf_gA",
-        authDomain: "futurum-task-dd99b.firebaseapp.com",
-        databaseURL: "https://futurum-task-dd99b-default-rtdb.firebaseio.com",
-        projectId: "futurum-task-dd99b",
-        storageBucket: "futurum-task-dd99b.appspot.com",
-        messagingSenderId: "241044701548",
-        appId: "1:241044701548:web:4263c5b993bffbe87db349"
+        apiKey: "AIzaSyD93kcVAQ929wSuf4yv-NW_rPMC7eySWSQ",
+        authDomain: "futurum-task-d3c91.firebaseapp.com",
+        databaseURL: "https://futurum-task-d3c91-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "futurum-task-d3c91",
+        storageBucket: "futurum-task-d3c91.appspot.com",
+        messagingSenderId: "872748431639",
+        appId: "1:872748431639:web:87713667a0e03f55df5f52"
     }
 };
