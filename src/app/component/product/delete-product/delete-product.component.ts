@@ -33,7 +33,19 @@ export class DeleteProductComponent implements OnInit{
   }
 
   delete() {
+    this.deleteCampaignsWithProduct()
     const deleteProduct = true;
     this.dialogRef.close(deleteProduct);
+  }
+  deleteCampaignsWithProduct() {
+    this.dataApi.getAllCampaigns().subscribe(res => {
+      this.allCampaigns = res.map((e : any) => {
+        const data = e.payload.doc.data();
+        const id = e.payload.doc.id;
+        if(data.product_id == this.productId) {
+          this.dataApi.deleteCampaign(id);
+        }
+      })
+    });
   }
 }
