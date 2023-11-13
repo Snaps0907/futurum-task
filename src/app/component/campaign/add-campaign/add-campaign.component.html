@@ -90,7 +90,7 @@
 
 <div mat-dialog-actions>
   <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
-  <button mat-raised-button color="primary" mat-dialog-close (click)="registerCampaign()" [disabled]="form.invalid"> {{buttonName}} </button>
+  <button mat-raised-button color="primary" mat-dialog-close (click)="registerCampaign();updateFund()" [disabled]="form.invalid"> {{buttonName}} </button>
 </div>
 
 

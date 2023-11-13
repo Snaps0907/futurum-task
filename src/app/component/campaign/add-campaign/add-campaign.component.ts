@@ -25,6 +25,9 @@ export class AddCampaignComponent implements OnInit{
 
   allProducts: any[] = [];
   towns: string[] = ['Madison','Pasco','Millville','Collinsville','Bay City','New Paltz','New Harmony','West Orange','Adams','Tullahoma','East Cleveland','Wabash'];
+  fundArr: any[] = [];
+  currentFund!: number;
+  fundId !: string;
 
   constructor(
     private fb: FormBuilder,
@@ -47,6 +50,7 @@ export class AddCampaignComponent implements OnInit{
   }
   ngOnInit(): void {
     this.getAllProducts();
+    this.getFund();
     this.form = this.fb.group({
       campaign_id: [this.campaign_id, []],
       campaign_name: [this.campaign_name, [Validators.required]],
@@ -90,6 +94,21 @@ export class AddCampaignComponent implements OnInit{
       }
     }
     return "";
+  }
+
+  getFund() {
+    this.dataApi.getFund().subscribe(res => {
+      this.fundArr = res.map((e: any) => {
+        const data = e.payload.doc.data();
+        this.currentFund = data.fund;
+        this.fundId = e.payload.doc.id;
+      })
+    })
+  }
+
+  updateFund() {
+    const finalFund = this.currentFund - this.form.value.fund;
+    this.dataApi.updateFund(JSON.parse(`{"fund":${finalFund}}`), this.fundId);
   }
 
 }

@@ -1,6 +1,7 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable, map, shareReplay } from 'rxjs';
+import { DataService } from 'src/app/shared/service/data.service';
 
 
 @Component({
@@ -10,6 +11,9 @@ import { Observable, map, shareReplay } from 'rxjs';
 })
 export class SidebarComponent implements OnInit{
 
+  fundArr : any[] = []
+  fund !: number;
+  
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
   .pipe(
     map(result => result.matches),
@@ -18,8 +22,20 @@ export class SidebarComponent implements OnInit{
 
   constructor(
     private breakpointObserver: BreakpointObserver,
+    private dataApi: DataService,
    ) {
    }
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.getFund()
+    }
+
+  getFund() {
+    this.dataApi.getFund().subscribe(res => {
+      this.fundArr = res.map((e : any) => {
+        const data = e.payload.doc.data();
+        this.fund = data.fund;
+      })
+    })
+  }
 }
