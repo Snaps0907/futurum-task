@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Product } from '../model/product';
+import { Campaign } from '../model/campaign';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,26 @@ export class DataService {
 
   getProductById(id : string){
     return this.db.doc(`Product/${id}`).valueChanges();
+  }
+
+  addCampaign(campaign: Campaign){
+    campaign.campaign_id = this.db.createId();
+    return this.db.collection("Campaign/").add(campaign);
+  }
+  
+  getAllCampaigns() {
+    return this.db.collection("Campaign/").snapshotChanges();
+  }
+
+  updateCampaign(campaign : Campaign) {
+    return this.db.doc(`Campaign/${campaign.campaign_id}`).update(campaign);
+  }
+
+  deleteCampaign(id : string) {
+    return this.db.doc(`Campaign/${id}`).delete();
+  }
+
+  getCampaignById(id : any) {
+    return this.db.doc(`Campaign/${id}`).valueChanges();
   }
 }
