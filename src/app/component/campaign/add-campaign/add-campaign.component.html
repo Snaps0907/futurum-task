@@ -21,7 +21,8 @@
             <input matInput
                     placeholder="Campaign keywords"
                     formControlName="keywords"
-                    required>
+                    required
+                    (keyup.Enter) = "addKeywords($event)">
             <mat-error *ngIf="form.get('keywords')?.invalid || form.get('keywords')?.dirty || form.get('keywords')?.touched">Enter campaign keywords</mat-error>
             
           </mat-form-field>   
@@ -86,7 +87,10 @@
 
         </div>
       
-
+        Keywords:
+        <div>
+            <span *ngFor="let allkeyword of allKeywords">{{ allkeyword}}, </span>
+        </div>
     </mat-grid-list>
 
 </mat-dialog-content>

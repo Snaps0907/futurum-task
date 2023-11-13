@@ -28,6 +28,7 @@ export class AddCampaignComponent implements OnInit{
   fundArr: any[] = [];
   currentFund!: number;
   fundId !: string;
+  allKeywords: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -56,7 +57,7 @@ export class AddCampaignComponent implements OnInit{
       campaign_name: [this.campaign_name, [Validators.required]],
       keywords: [this.keywords, [Validators.required]],
       amount: [this.amount, [Validators.required]],
-      fund: [this.fund, [Validators.required]],
+      fund: [this.fund, [Validators.required,Validators.max(this.currentFund)]],
       status: [this.status, [Validators.required]],
       town: [this.town, []],
       radius: [this.radius, [Validators.required, Validators.min(0)]],
@@ -109,6 +110,11 @@ export class AddCampaignComponent implements OnInit{
   updateFund() {
     const finalFund = this.currentFund - this.form.value.fund;
     this.dataApi.updateFund(JSON.parse(`{"fund":${finalFund}}`), this.fundId);
+  }
+  addKeywords(keyword: any) {
+    if (keyword.target.value) {
+      this.allKeywords.push(keyword.target.value);
+    }
   }
 
 }
