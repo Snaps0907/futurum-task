@@ -16,6 +16,10 @@ import { MaterialModule } from './material/material.module';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { CampaignComponent } from './component/campaign/campaign.component';
+import { AddCampaignComponent } from './component/campaign/add-campaign/add-campaign.component';
+import { ViewCampaignComponent } from './component/campaign/view-campaign/view-campaign.component';
+import { DeleteCampaignComponent } from './component/campaign/delete-campaign/delete-campaign.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
     AddProductComponent,
     ViewProductComponent,
     DeleteProductComponent,
-    SidebarComponent
+    SidebarComponent,
+    CampaignComponent,
+    AddCampaignComponent,
+    ViewCampaignComponent,
+    DeleteCampaignComponent
   ],
   imports: [
     BrowserModule,
