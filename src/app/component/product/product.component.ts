@@ -109,4 +109,13 @@ export class ProductComponent implements OnInit{
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }
+  
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
