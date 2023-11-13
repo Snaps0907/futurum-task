@@ -10,6 +10,7 @@ export class DataService {
   constructor(private db : AngularFirestore) { }
 
   addProduct(product : Product){
+    product.id = this.db.createId();
     return this.db.collection("Product/").add(product);
   }
 
