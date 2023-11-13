@@ -109,6 +109,10 @@ export class CampaignComponent {
     })
   }
 
+  viewCampaign(row: any) {
+    window.open('/campaign/' + row.campaign_id, '_blank');
+  }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }

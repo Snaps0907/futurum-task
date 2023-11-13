@@ -15,7 +15,7 @@
       <h2 style="font-weight: 700;" class="mt-4" color="primary">Campaign Information</h2>
       <mat-form-field >
         <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. code logic" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Campaign name" #input>
       </mat-form-field>
   
       <div class="mat-elevation-z8">
@@ -41,7 +41,10 @@
                 <mat-icon>more_vert</mat-icon>
               </button>
               <mat-menu #menu="matMenu">
-               
+                <button mat-menu-item (click)="viewCampaign(row)">
+                    <mat-icon>open_in_new</mat-icon>
+                    <span>View</span>
+                  </button>
                 <button mat-menu-item (click)="deleteCampaign(row)">
                     <mat-icon>delete</mat-icon>
                     <span>Delete</span>
