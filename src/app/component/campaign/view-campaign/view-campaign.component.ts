@@ -25,7 +25,6 @@ export class ViewCampaignComponent {
   getCampaignById(){
     this.dataApi.getCampaignById(this.campaign_id).subscribe(res => {
       this.campaignObj = res;
-      console.log(res)
     })
   }
 }

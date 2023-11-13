@@ -85,7 +85,6 @@ export class ViewProductComponent implements OnInit {
     dialogConfig.data.title = "Edit campaign";
     dialogConfig.data.buttonName = "Update";
 
-    console.log(dialogConfig.data);
 
     const dialogRef = this.dialog.open(AddCampaignComponent, dialogConfig);
 

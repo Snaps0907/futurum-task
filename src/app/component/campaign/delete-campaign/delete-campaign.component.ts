@@ -15,7 +15,6 @@ export class DeleteCampaignComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) data : any,
     private dialogRef : MatDialogRef<DeleteCampaignComponent>
   ) {
-    console.log(data);
     this.campaignName = data.campaignName;
     this.title = data.title;
   }

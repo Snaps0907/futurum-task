@@ -102,7 +102,6 @@ export class CampaignComponent {
 
     dialogRef.afterClosed().subscribe(data => {
       if (data) {
-        console.log(row);
         this.dataApi.deleteCampaign(row.campaign_id);
         this.openSnackBar("Campaign deleted successfully.", "OK")
       }
