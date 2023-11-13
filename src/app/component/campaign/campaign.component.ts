@@ -113,6 +113,27 @@ export class CampaignComponent {
     window.open('/campaign/' + row.campaign_id, '_blank');
   }
 
+  editCampaign(row: any) {
+    if (row.campaign_id == null || row.campaign_name == null) {
+      return;
+    }
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.data = row;
+    dialogConfig.data.title = "Edit campaign";
+    dialogConfig.data.buttonName = "Update";
+
+    const dialogRef = this.dialog.open(AddCampaignComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        this.dataApi.updateCampaign(data);
+        this.openSnackBar("Campaign is updated successfully.", "OK")
+      }
+    })
+  }
+
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
   }

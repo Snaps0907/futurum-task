@@ -45,6 +45,10 @@
                     <mat-icon>open_in_new</mat-icon>
                     <span>View</span>
                   </button>
+                  <button mat-menu-item (click)="editCampaign(row)">
+                    <mat-icon>edit</mat-icon>
+                    <span>Edit</span>
+                  </button>
                 <button mat-menu-item (click)="deleteCampaign(row)">
                     <mat-icon>delete</mat-icon>
                     <span>Delete</span>
