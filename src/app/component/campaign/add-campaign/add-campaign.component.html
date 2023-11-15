@@ -1,99 +1,137 @@
 <div class="main-container">
-<h2 mat-dialog-tile style="text-align: center;"> {{ title }} </h2>
-<mat-divider></mat-divider>
-<mat-dialog-content [formGroup] = "form" class="add-form">
-
+  <h2 mat-dialog-tile style="text-align: center">{{ title }}</h2>
+  <mat-divider></mat-divider>
+  <mat-dialog-content [formGroup]="form" class="add-form">
     <mat-grid-list cols="2">
-
-      
-        <div class="half-box">
-          <mat-form-field appearance="outline">
-            <mat-label>Campaign name</mat-label>
-            <input matInput
-                    placeholder="Campaign name"
-                    formControlName="campaign_name"
-                    required>
-            <mat-error *ngIf="form.get('campaign_name')?.invalid || form.get('campaign_name')?.dirty || form.get('campaign_name')?.touched">Enter campaign name</mat-error>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Campaign keywords</mat-label>
-            <input matInput
-                    placeholder="Campaign keywords"
-                    formControlName="keywords"
-                    required
-                    (keyup.Enter) = "addKeywords($event)">
-            <mat-error *ngIf="form.get('keywords')?.invalid || form.get('keywords')?.dirty || form.get('keywords')?.touched">Enter campaign keywords</mat-error>
-            
-          </mat-form-field>   
+      <div class="half-box">
+        <mat-form-field appearance="outline">
+          <mat-label>Campaign name</mat-label>
+          <input
+            matInput
+            placeholder="Campaign name"
+            formControlName="campaign_name"
+            required
+          />
+          <mat-error
+            *ngIf="
+              form.get('campaign_name')?.invalid ||
+              form.get('campaign_name')?.dirty ||
+              form.get('campaign_name')?.touched
+            "
+            >Enter campaign name</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Campaign keywords</mat-label>
+          <input
+            matInput
+            placeholder="Campaign keywords"
+            formControlName="keywords"
+            required
+            (keyup.Enter)="addKeywords($event)"
+          />
+          <mat-error
+            *ngIf="
+              form.get('keywords')?.invalid ||
+              form.get('keywords')?.dirty ||
+              form.get('keywords')?.touched
+            "
+            >Enter campaign keywords</mat-error
+          >
+        </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Bid amount</mat-label>
-          <input matInput
-                  placeholder="Bid amount"
-                  formControlName="amount"
-                  required
-                  type="number">
-          <mat-error *ngIf="form.get('amount')?.invalid">Enter campaign bid amount</mat-error>
-          
-        </mat-form-field> 
+          <input
+            matInput
+            placeholder="Bid amount"
+            formControlName="amount"
+            required
+            type="number"
+          />
+          <mat-error *ngIf="form.get('amount')?.invalid"
+            >Enter campaign bid amount</mat-error
+          >
+        </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Campaign fund</mat-label>
-          <input matInput
-                  placeholder="Campaign fund"
-                  formControlName="fund"
-                  required
-                  type="number"
-                  max="{{currentFund}}">
-          <mat-error *ngIf="form.get('fund')?.invalid">Enter Campaign fund</mat-error>
-          
-        </mat-form-field>     
-        </div>
-      
+          <input
+            matInput
+            placeholder="Campaign fund"
+            formControlName="fund"
+            required
+            type="number"
+            max="{{ currentFund }}"
+          />
+          <mat-error *ngIf="form.get('fund')?.invalid"
+            >Enter Campaign fund</mat-error
+          >
+        </mat-form-field>
+      </div>
 
-      
-        <div class="half-box">
-            <div class="status-box">
+      <div class="half-box">
+        <div class="status-box">
           <mat-label class="me-3">Status : </mat-label>
-          <br>
-          <mat-radio-group aria-label="Select status" color="primary" formControlName="status">
+          <br />
+          <mat-radio-group
+            aria-label="Select status"
+            color="primary"
+            formControlName="status"
+          >
             <mat-radio-button value="true">On</mat-radio-button>
             <mat-radio-button value="false">Off</mat-radio-button>
           </mat-radio-group>
         </div>
-          <mat-form-field class="mt-4" appearance="outline">
-            <mat-label>Town</mat-label>
-            <mat-select formControlName="town" name="town">
-              <mat-option *ngFor="let town of towns" [value]="town">
-                {{town}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="outline">
-            <mat-label>Radius</mat-label>
-            <input matInput
-                    placeholder="Radius"
-                    formControlName="radius"
-                    required
-                    type="number">
-            <mat-error *ngIf="form.get('radius')?.invalid">Enter radius </mat-error>
-          </mat-form-field>
-          <mat-form-field class="mt-4" appearance="outline">
-            <mat-label>Product</mat-label>
-            <mat-select formControlName="product_id" name="product_id">
-              <mat-option *ngFor="let product of allProducts" [value]="product.product_id">
-                {{product.product_name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-        </div>
+        <mat-form-field class="mt-4" appearance="outline">
+          <mat-label>Town</mat-label>
+          <mat-select formControlName="town" name="town">
+            <mat-option *ngFor="let town of towns" [value]="town">
+              {{ town }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Radius</mat-label>
+          <input
+            matInput
+            placeholder="Radius"
+            formControlName="radius"
+            required
+            type="number"
+          />
+          <mat-error *ngIf="form.get('radius')?.invalid"
+            >Enter radius
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="mt-4" appearance="outline">
+          <mat-label>Product</mat-label>
+          <mat-select formControlName="product_id" name="product_id">
+            <mat-option
+              *ngFor="let product of allProducts"
+              [value]="product.product_id"
+            >
+              {{ product.product_name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </mat-grid-list>
     <div class="keywords-container">
-      Keywords: <span *ngFor="let allkeyword of allKeywords">{{ allkeyword}}, </span>
+      Keywords:
+      <span *ngFor="let allkeyword of allKeywords">{{ allkeyword }}, </span>
     </div>
-</mat-dialog-content>
-<div mat-dialog-actions>
-  <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
-  <button mat-raised-button color="primary" mat-dialog-close (click)="registerCampaign();updateFund()" [disabled]="form.invalid"> {{buttonName}} </button>
+  </mat-dialog-content>
+  <div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">
+      Cancel
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      mat-dialog-close
+      (click)="registerCampaign(); updateFund()"
+      [disabled]="form.invalid"
+    >
+      {{ buttonName }}
+    </button>
+  </div>
 </div>
-</div>
-

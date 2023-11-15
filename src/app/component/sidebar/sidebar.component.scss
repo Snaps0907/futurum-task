@@ -1,41 +1,42 @@
-.sidebar{
-    background-color: #FFFFFF;
-    width:200px;
-    box-shadow: 2px 0px 10px 1px rgba(0, 0, 0, 0.14);
-    .mdc-list{
-        padding: 0;
-        &-item{
-            &.active{
-                background-color:#f5f5fa;
-            }
-            &:focus{
-                color:black;
-            }
-        }
+.sidebar {
+  background-color: #ffffff;
+  width: 200px;
+  box-shadow: 2px 0px 10px 1px rgba(0, 0, 0, 0.14);
+  .mdc-list {
+    padding: 0;
+    &-item {
+      &.active {
+        background-color: #f5f5fa;
+      }
+      &:focus {
+        color: black;
+      }
     }
-}.toolbar{
-    background-color: #FFFFFF;
+  }
 }
-.main-bar{
-    h1{
+.toolbar {
+  background-color: #ffffff;
+}
+.main-bar {
+  h1 {
     font-size: 1.6rem;
-    }
+  }
 }
-.budget{
-    position: relative;
-    z-index: 2;
-    display: flex;
-    width: auto;
-    justify-content: center;
-    padding: 20px 16px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.14);
-    font-size: 1.2rem;
-    &-value{
-        padding-left: 5px;
-    }
+.budget {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: auto;
+  justify-content: center;
+  padding: 20px 16px;
+  background-color: #ffffff;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.14);
+  font-size: 1.2rem;
+  &-value {
+    padding-left: 5px;
+  }
 }
 
 .mat-toolbar-single-row {
-    gap:16px;
+  gap: 16px;
 }

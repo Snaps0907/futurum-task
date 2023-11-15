@@ -1,11 +1,11 @@
-.main-container{
-    padding: 16px;
-    .delete-product{
-        &__title{
-            text-align: center;
-        }
-        &__actions{
-            justify-content: center;
-        }
+.main-container {
+  padding: 16px;
+  .delete-product {
+    &__title {
+      text-align: center;
     }
+    &__actions {
+      justify-content: center;
+    }
+  }
 }
