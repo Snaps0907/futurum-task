@@ -1,17 +1,17 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport
+<mat-sidenav-container class="sidebar-container">
+    <mat-sidenav #drawer class="sidebar" fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar class="toolbar">Menu</mat-toolbar>
       <mat-divider></mat-divider>
       <mat-nav-list>
-        <a class="sidebar-links" mat-list-item routerLinkActive="active" routerLink="/product"> Product</a>
+        <a class="sidebar-links" mat-list-item routerLinkActive="active" routerLink="/product">Product</a>
         <a class="sidebar-links" mat-list-item routerLinkActive="active" routerLink="/campaign">Campaign</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar color="primary">
+      <mat-toolbar class="toolbar">
         <button
           type="button"
           aria-label="Toggle sidenav"
@@ -21,10 +21,11 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <div class="main-bar">
-            <div>Product Management</div>
-            <div>{{fund}}$</div>
+            <h1>Product Management</h1>
         </div>
       </mat-toolbar>
+      <mat-divider></mat-divider>
+      <div class="budget">Company budget:<span class="budget-value">{{fund}}$</span></div>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>

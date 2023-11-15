@@ -1,0 +1,11 @@
+.main-container{
+    padding: 16px;
+    .delete-campaign{
+        &__title{
+            text-align: center;
+        }
+        &__actions{
+            justify-content: center;
+        }
+    }
+}

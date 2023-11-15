@@ -1,13 +1,23 @@
 .main-container{
-    padding: 10px;
+    padding: 16px;
 }
 .mat-mdc-dialog-content{
-    width: 600px;
-    min-height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .mat-mdc-form-field{
     padding: 0 10px;
+}
+.fields-contianer{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+.add-form { 
+    padding: 16px;
+    align-items: start;
+}
+.mat-mdc-dialog-actions{
+    justify-content: center;
 }

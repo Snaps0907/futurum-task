@@ -1,20 +1,23 @@
 <div class="container">
+    
+
+    <h2 style="font-weight: 500;" color="primary" class="mt-4">Products Information</h2>
+
     <div class="row">
         <div class="col-sm-6 col-md-4 mt-3">
-            <button class="add-product text-center" (click)="addProduct()">
-                    <mat-icon>add</mat-icon>
+            <button mat-raised-button style="margin-bottom: 16px;" (click)="addProduct()">
+                <mat-icon>add</mat-icon>Add product
             </button>
         </div>
     </div>
-
-    <h2 style="font-weight: 700;" color="primary" class="mt-4">Products Information</h2>
     <!-- products table -->
-    <mat-form-field appearance="outline">
+    <mat-form-field class="filter" appearance="outline" >
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Product name..." #input>
     </mat-form-field>
     
     <div class="mat-elevation-z8">
+        <div style="overflow-x: auto;">
         <table mat-table [dataSource]="dataSource" matSort>
 
             <!-- Name Column -->
@@ -57,13 +60,14 @@
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            <tr class="mat-row" *matNoDataRow>
+            <tr class="mat-row no-data-information" *matNoDataRow>
                 <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
             </tr>
             
         </table>
+        </div>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        <mat-paginator class="pagination" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
 
 

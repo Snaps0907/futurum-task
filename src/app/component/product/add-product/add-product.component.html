@@ -1,10 +1,11 @@
 <div class="main-container">
-<h2 mat-dialog-tile>{{title}}</h2>
+<h2 mat-dialog-tile style="text-align: center;">{{title}}</h2>
+<mat-divider></mat-divider>
 
-<mat-dialog-content [formGroup] = "form">
+<mat-dialog-content [formGroup] = "form" class="add-form">
 
     <mat-grid-list cols="1">
-        <div>
+        <div class="fields-contianer">
           <mat-form-field appearance="outline">
             <mat-label>Product name</mat-label>
             <input matInput
@@ -15,18 +16,18 @@
           </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>Product description</mat-label>
-                <input matInput
+                <textarea matInput
+                rows="5"
                         placeholder="Product description"
                         formControlName="description"
-                        required>
+                        required></textarea>
                 <mat-error *ngIf="form.get('description')?.invalid || form.get('description')?.dirty || form.get('description')?.touched">Enter product description</mat-error>
               </mat-form-field>
         </div>
     </mat-grid-list>
 </mat-dialog-content>
-<div mat-dialog-actions>
+<div mat-dialog-actions style="text-align: center;">
     <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
     <button mat-raised-button color="primary" mat-dialog-close (click)="registerProduct()" [disabled]="form.invalid"> {{buttonName}} </button>
   </div>
-
 </div>

@@ -57,7 +57,7 @@ export class AddCampaignComponent implements OnInit{
       campaign_name: [this.campaign_name, [Validators.required]],
       keywords: [this.keywords, [Validators.required]],
       amount: [this.amount, [Validators.required]],
-      fund: [this.fund, [Validators.required,Validators.max(this.currentFund)]],
+      fund: [this.fund, [Validators.required]],
       status: [this.status, [Validators.required]],
       town: [this.town, []],
       radius: [this.radius, [Validators.required, Validators.min(0)]],

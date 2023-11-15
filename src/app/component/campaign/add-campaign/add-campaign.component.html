@@ -1,8 +1,7 @@
 <div class="main-container">
-<h2 mat-dialog-tile> {{ title }} </h2>
+<h2 mat-dialog-tile style="text-align: center;"> {{ title }} </h2>
 <mat-divider></mat-divider>
-
-<mat-dialog-content [formGroup] = "form">
+<mat-dialog-content [formGroup] = "form" class="add-form">
 
     <mat-grid-list cols="2">
 
@@ -42,7 +41,8 @@
                   placeholder="Campaign fund"
                   formControlName="fund"
                   required
-                  type="number">
+                  type="number"
+                  max="{{currentFund}}">
           <mat-error *ngIf="form.get('fund')?.invalid">Enter Campaign fund</mat-error>
           
         </mat-form-field>     
@@ -86,15 +86,11 @@
           </mat-form-field>
 
         </div>
-      
-        Keywords:
-        <div>
-            <span *ngFor="let allkeyword of allKeywords">{{ allkeyword}}, </span>
-        </div>
     </mat-grid-list>
-
+    <div class="keywords-container">
+      Keywords: <span *ngFor="let allkeyword of allKeywords">{{ allkeyword}}, </span>
+    </div>
 </mat-dialog-content>
-
 <div mat-dialog-actions>
   <button mat-raised-button mat-dialog-close (click)="cancelRegistration()">Cancel</button>
   <button mat-raised-button color="primary" mat-dialog-close (click)="registerCampaign();updateFund()" [disabled]="form.invalid"> {{buttonName}} </button>

@@ -1,8 +1,10 @@
-<h1 mat-dialog-title>{{title}}</h1>
-<div mat-dialog-content>
+<div class="main-container delete-product">
+<h1 mat-dialog-title class="delete-product__title">{{title}}</h1>
+<div mat-dialog-content class="delete-product__message">
   <p>Are you sure you want to delete {{productName}}? </p>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="delete-product__actions">
   <button mat-raised-button (click)="close()">No Thanks</button>
   <button mat-raised-button color="accent"  (click)="delete()">Delete</button>
+</div>
 </div>
